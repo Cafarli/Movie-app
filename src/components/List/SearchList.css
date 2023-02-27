@@ -1,0 +1,111 @@
+body {
+    color: #ffffff;    
+}
+
+.arrow {
+    padding-right: 5%;
+    cursor: pointer;
+}
+
+.saving-area, .list-area{
+    display: block;
+    width: 20rem;
+}
+
+.list {
+    margin: 0;
+    padding: 0;
+}
+
+
+.SearchList {
+    width: 25%;
+    top: 0;
+    right: 0;
+    padding-top: 5%;
+    padding-right: 2%;
+    display: block;
+    animation-name: animate; 
+    animation-duration: 2s;
+    animation-timing-function: ease-in;
+}
+
+@keyframes animate {
+    0% {
+        right: 0;
+        left: 100%;
+      }
+      100% {
+        right: 0%;
+        left: 100;
+      }
+}
+
+.name-area {
+    width: 73%;
+    display: inline-block;
+    height: 25px;
+    margin: 0% 1% 5% 0%;
+    outline: none;
+    padding-right: 1%;
+}
+
+.save {
+    width: 22%;
+    display: inline-block;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid rgb(255, 255, 255);
+    color: white;
+    background-color: rgb(38, 38, 38);
+}
+
+.save:enabled{
+    cursor: pointer;
+}
+
+.save:disabled{
+    cursor:not-allowed;
+}
+
+/* LIST */
+.list ,.list-item {
+    list-style: none;
+}
+
+
+@media screen and (max-width:950px) {
+    .save {
+        width: 30%;
+    }
+    .SearchList{
+        display: block;
+        width: 23rem;
+    }
+    .saving-area {
+        width: 16rem;
+    }
+    .name-area {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width:450px) {
+    
+    .SearchList{
+        display: block;
+        padding-left: 1%;
+        width: 100%;
+        margin-left: 10%;
+    }
+    .name-area{
+        width: 25%;
+    }
+    .saving-area {
+        width: 100%;
+        display: inline-flex;
+    }
+    .save{
+        width: 10%;
+    }
+}

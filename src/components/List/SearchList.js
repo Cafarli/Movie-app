@@ -5,35 +5,46 @@ import { useSelector } from "react-redux";
 import { saveAs } from "file-saver";
 
 export function SearchList() {
-  let [listName, setListName] = useState('');
-  let [disabledValue, setDisabledValue] = useState(false)
+  let [listName, setListName] = useState("");
+  let [disabledValue, setDisabledValue] = useState(false);
   const addedMovies = useSelector((state) => state.add.movies);
 
-  const saveList =()=>{
-    var list_text =listName;
-    {addedMovies !== undefined && !!addedMovies.length &&
-      addedMovies.map((item, index) => {
-        return (
-          item.movieTitle !== "" &&
-          item.poster !== "" && 
-            (list_text = list_text+ '\nMovie ID: '+item.movieID + '\nMovie: '+item.movieTitle+'\nPoster:' +item.poster+ '\nMovie Year: '+item.movieYear+'\n')
-        );
-        
-      })}
-      var blob = new Blob([list_text], { type: "text/plain;charset=utf-8" });
-      saveAs(blob, "MovieList.txt");
-      alert('List is saved');
+  const saveList = () => {
+    var list_text = listName;
+    
+      addedMovies !== undefined &&
+        !!addedMovies.length &&
+        addedMovies.map((item, index) => {
+          return (
+            item.movieTitle !== "" &&
+            item.poster !== "" &&
+            (list_text =
+              list_text +
+              "\nMovie ID: " +
+              item.movieID +
+              "\nMovie: " +
+              item.movieTitle +
+              "\nPoster:" +
+              item.poster +
+              "\nMovie Year: " +
+              item.movieYear +
+              "\n")
+          );
+        });
+    
+    var blob = new Blob([list_text], { type: "text/plain;charset=utf-8" });
+    saveAs(blob, "MovieList.txt");
+    alert("List is saved");
+  };
 
-  }
-
-  const handleChange=(e)=>{
-    setListName(e.target.value)
-  }
+  const handleChange = (e) => {
+    setListName(e.target.value);
+  };
 
   return (
     <div className="SearchList">
       <div className="saving-area">
-        <input 
+        <input
           value={listName}
           onChange={handleChange}
           type="text"
@@ -41,7 +52,9 @@ export function SearchList() {
           name="name-area"
           placeholder="Siyahı adını daxil edin"
         />
-        <button className="save" onClick={saveList} disabled={!listName}>Saxla</button>
+        <button className="save" onClick={saveList} disabled={!listName}>
+          Saxla
+        </button>
       </div>
       <div className="list-area">
         <ul className="list">

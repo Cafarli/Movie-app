@@ -10,7 +10,7 @@ export function OpenedMovie(props){
     fetch(`http://www.omdbapi.com/?i=${id}&apikey=d7ad9ce`)
      .then(response=>response.json())
      .then(data=>setMovie(data))
-   },[])
+   }, [])
     return(
         <div className='OpenedMovie'>
             <div className='photo'>

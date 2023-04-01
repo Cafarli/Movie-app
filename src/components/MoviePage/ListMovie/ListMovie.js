@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { AiFillDislike } from 'react-icons/ai'
 import { useDispatch } from "react-redux";
 import { removeListAction } from "../../../Redux/Actions/removelistAction";
